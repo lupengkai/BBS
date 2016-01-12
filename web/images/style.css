@@ -1,0 +1,156 @@
+@charset "utf-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, table, th, td {
+	margin: 0;
+	padding: 0;
+}
+html {
+}
+body {
+	font: 12px 宋体, Tahoma, Helvetica, Arial, sans-serif;
+	margin: 0;
+	position: relative;
+	text-align: center;
+}
+html, body {
+	height: 100%;
+}
+fieldset, img {
+	border: 0;
+}
+ul, li {
+	list-style-type: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+.clearfix:after {
+	content: "";
+	clear: both;
+	display: block;
+} /*ff*/
+.clearfix {
+	height: 100%;
+}/* ie6  或者使用zoom:1 */
+a {
+	color: #2051ad;
+	text-decoration: none;
+	outline: none;
+}
+a:hover {
+	color: #ff6600;
+	text-decoration: underline;
+}
+input, img {
+	border: 0;
+}
+.input {
+	width: 150px;
+	height: 22px;
+	line-height: 22px;
+	background: #d8d8d8;
+	border: 1px solid #b2b2b2;
+}
+.input_yzm {
+	width: 80px;
+	height: 22px;
+	line-height: 22px;
+	background: #d8d8d8;
+	border: 1px solid #b2b2b2;
+}
+.clear {
+	clear: both;
+}
+#main {
+    width: 100%;
+	background:url(../images/body-bg.jpg);
+	height:711px;
+}
+.header {
+	width: 1100px;
+	height: 134px;
+	text-align:center;
+	background:url(../images/top.jpg) no-repeat top center;
+	margin: 0 auto;
+}
+.header span {
+	float: right;
+	color: #84d5ff;
+	margin-top: 10px;
+	margin-right: 100px;
+}
+.header span a {
+	color: #84d5ff;
+}
+
+.banner-bg { 
+    background:url(../images/banner_bg.jpg) no-repeat top center;
+	width: 1100px;
+	height: 467px;
+	text-align:center;
+	margin: 0 auto;
+}
+
+.right-area {
+	float: right;
+	margin-right: 50px;
+	width: 250px;
+}
+.form-area {
+	width: 250px;
+	display: inline;
+	text-align:left;
+}
+.form-area li {
+	height: 40px;
+	font-size: 12px;
+	color: #363636;
+}
+.form-area li p img {
+	margin-right: 0 10px 0 -5px;
+}
+.form-area li p {
+	margin-bottom: 10px;
+	display: block;
+	padding-left: 70px;
+}
+.form-title {
+	margin-top: 60px;
+	height: 40px;
+	background: url(../images/form_title.png) no-repeat 70px 0;
+}
+.form-area li span {
+	margin-left: 12px;
+}
+.form-area li h2 {
+ *letter-spacing:12px;
+	display: inline;
+}
+.form-area p img {
+	margin-right: 10px;
+	margin-top: 10px;
+}
+.form-area h3 {
+	text-align: left;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.form-area h4 img {
+	vertical-align: middle;
+}
+.form-area h4 span {
+	color: #2b70a3;
+	width:160px;
+	line-height:20px;
+}
+.footer {
+	width: 1100px;
+	height: 40px;
+	text-align: center;
+	margin: 0 auto;
+}
+.footer span {
+	line-height: 24px;
+	color: #1566b4;
+}

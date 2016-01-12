@@ -9,6 +9,7 @@
 <%@ page import="java.sql.*" %>
 <%!
     String str ="";
+    boolean login = false;
     private void tree(Connection coon, int id, int level) {
         Statement stmt = null;
         ResultSet rs = null;
@@ -20,7 +21,10 @@
             stmt = coon.createStatement();
             String sql = "select * from article where pid =" + id;
             rs = stmt.executeQuery(sql);
+            String loginStr = "";
+
             while (rs.next()) {
+                if (login) loginStr = "<td>" + "<a href = 'Delete.jsp?id=" + rs.getInt("id") +"&pid="+ rs.getInt("pid") + "'>" + "É¾³ý" + "</td>";
                 str += "<tr>" +
                         "<td>" + rs.getInt("id") + "</td>" +
                         "<td>" +
@@ -29,7 +33,7 @@
                         + rs.getString("title") +
                         " </a>" +
                         "</td>" +
-                        "<td>" + "<a href = 'Delete.jsp?id=" + rs.getInt("id") +"&pid="+ rs.getInt("pid") + "'>" + "É¾³ý" + "</td>" +
+                        loginStr +
                         "</tr>";
                 if (rs.getInt("isleaf") != 0) {
                     tree(coon, rs.getInt("id"), level+1);
@@ -45,16 +49,23 @@
 
 %>
 <%
+    String admin = (String)session.getAttribute("login");
+    if (admin != null && admin.equals("true")) {
+        login = true;
+    }
     Class.forName("com.mysql.jdbc.Driver");
     String url = "jdbc:mysql://localhost/bbs?user=root&password=0715";
     Connection coon = DriverManager.getConnection(url);
     Statement stmt = coon.createStatement();
     ResultSet rs = stmt.executeQuery("select * from article WHERE pid=0");
+    String loginStr = "";
+
     while (rs.next()) {
+        if (login) loginStr = "<td>" + "<a href = 'Delete.jsp?id=" + rs.getInt("id") +"&pid="+ rs.getInt("pid") + "'>" + "É¾³ý" + "</td>";
         str += "<tr>" +
                 "<td>" + rs.getInt("id") + "</td>" +
                 "<td>" + "<a href = 'ShowArticleDetail.jsp?id="+ rs.getInt("id")+"'>"+rs.getString("title") + " </a>" +"</td>" +
-                "<td>" + "<a href = 'Delete.jsp?id=" + rs.getInt("id") +"&pid="+ rs.getInt("pid") + "'>" + "É¾³ý" + "</td>" +
+                loginStr +
                 "</tr>";
         if (rs.getInt("isleaf") != 0) {
             tree(coon, rs.getInt("id"), 1);
@@ -75,13 +86,14 @@
 </head>
 <body>
 
-
+<a href="Post.jsp">·¢Ìû</a>
 <table border="1">
     <%= str%>
 </table>
 
 <%
     str = "";
+    login=false;
 %>
 
 </body>

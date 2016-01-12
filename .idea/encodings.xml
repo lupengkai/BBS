@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/SQL/bbs.sql" charset="GB2312" />
-    <file url="file://$PROJECT_DIR$/web/Matlab2014b for mac安装及破解方法.txt" charset="Big5-HKSCS" />
+    <file url="file://$PROJECT_DIR$/web/Login.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/Login.jsp" charset="UTF-8" />
   </component>
 </project>

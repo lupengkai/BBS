@@ -36,26 +36,31 @@
 </head>
 <body>
 <%
-    int id = Integer.parseInt(request.getParameter("id"));
-    int pid = Integer.parseInt(request.getParameter("pid"));
-    Class.forName("com.mysql.jdbc.Driver");
-    String url = "jdbc:mysql://localhost/bbs?user=root&password=0715";
-    Connection coon = DriverManager.getConnection(url);
-    coon.setAutoCommit(false);
-    del(coon, id);
-    Statement stmt = coon.createStatement();
-    ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM article where id = " + pid);
-    rs.next();
-    int childNum = rs.getInt(1);
-    if (childNum <= 0) {
-        stmt.executeUpdate("UPDATE article set isleaf = 0 WHERE id = " + pid);
-    }
+    String admin = (String)session.getAttribute("login");
+    if (admin != null && admin.equals("true")) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        int pid = Integer.parseInt(request.getParameter("pid"));
+        Class.forName("com.mysql.jdbc.Driver");
+        String url = "jdbc:mysql://localhost/bbs?user=root&password=0715";
+        Connection coon = DriverManager.getConnection(url);
+        coon.setAutoCommit(false);
+        del(coon, id);
+        Statement stmt = coon.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM article where id = " + pid);
+        rs.next();
+        int childNum = rs.getInt(1);
+        if (childNum <= 0) {
+            stmt.executeUpdate("UPDATE article set isleaf = 0 WHERE id = " + pid);
+        }
 
-    coon.setAutoCommit(true);
-    rs.close();
-    stmt.close();
-    coon.close();
-    response.sendRedirect("ShowArticleTree.jsp");
+        coon.setAutoCommit(true);
+        rs.close();
+        stmt.close();
+        coon.close();
+        response.sendRedirect("ShowArticleTree.jsp");
+    } else {
+        out.println("hehe");
+    }
 %>
 </body>
 </html>
