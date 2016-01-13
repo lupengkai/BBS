@@ -28,7 +28,7 @@
     coon.setAutoCommit(false);
 
     prestmt.executeUpdate();
-    stmt.executeUpdate("update article set isleaf = 1 WHERE id=" +pid);
+    stmt.executeUpdate(" update article set isleaf = 1 WHERE id = " +pid);
 
     coon.commit();
     coon.setAutoCommit(true);
@@ -37,7 +37,7 @@
     prestmt.close();
     coon.close();
 
-    response.sendRedirect("ShowArticleTree.jsp");
+    response.sendRedirect("ShowArticleFlat.jsp");
 %>
 <html>
 <head>

@@ -14,9 +14,52 @@
 <head>
     <meta http-equiv="CONTENT-TYPE" content="text/html" ; charset="GBK">
     <title></title>
+    <script language="javascript">
+        <!--
+        function LTrim(str){
+            var i;
+            for(i=0;i<str.length; i++) {
+                if(str.charAt(i)!=" ") break;
+            }
+            str = str.substring(i,str.length);
+            return str;
+        }
+
+        function RTrim(str){
+            var i;
+            for(i=str.length-1;i>=0;i--){
+                if(str.charAt(i)!=" "&&str.charAt(i)!=" ") break;
+            }
+            str = str.substring(0,i+1);
+            return str;
+        }
+        function Trim(str){
+
+            return LTrim(RTrim(str));
+
+        }
+
+        function check() {
+            if(Trim(document.reply.title.value) == "") {
+                alert("please intput the title!");
+                document.reply.title.focus();
+                return false;
+            }
+
+            if(Trim(document.reply.cont.value) == "") {
+                alert("plsease input the content!");
+                document.reply.cont.focus();
+                return false;
+            }
+
+            return true;
+
+        }
+        -->
+    </script>
 </head>
 <body>
-<form action="ReplyOK.jsp" method="post">
+<form  name="reply" action="ReplyOK.jsp" method="post" onsubmit="check()">
     <input type="hidden" name="pid" value="<%= pid%>">
     <input type="hidden" name="rootid" value="<%= rootId%>">
     <table>

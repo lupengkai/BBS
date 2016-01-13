@@ -45,7 +45,7 @@
         prestmt.close();
         coon.close();
 
-        response.sendRedirect("ShowArticleTree.jsp");
+        response.sendRedirect("ShowArticleFlat.jsp");
     }
 %>
 <html>
